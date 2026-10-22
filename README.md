@@ -13,6 +13,14 @@ A beginner-friendly Streamlit prototype for hackathon problem statement PS 2.1. 
 - SQLite audit history with decision, reason, AI note, simulated result, and approver.
 - No real business-system integration; all outcomes are simulated.
 
+## Screenshots
+
+The screenshots show the action gateway and an example Gemini risk assessment. The API key is masked, and the example uses fictional demo data.
+
+![Sentinel AI action gateway](screenshots/sentinel-ai-action-gateway.png)
+
+![Gemini risk assessment with a simulated refund](screenshots/gemini-risk-assessment.png)
+
 ## Setup (Windows PowerShell)
 
 ```powershell
