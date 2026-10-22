@@ -2,6 +2,8 @@
 
 A beginner-friendly Streamlit prototype for hackathon problem statement PS 2.1. Sentinel AI reviews proposed tool actions, applies deterministic permissions and safety policy, simulates allowed actions, and keeps a local audit dashboard.
 
+**How to think about the demo:** You manually enter a pretend action that an AI agent might request. Sentinel checks it and shows whether it would allow, block, or pause the action for approval. A real AI agent is not connected to this prototype; in a deployed system, the agent would send each proposed action to Sentinel before using a business tool.
+
 ## What it demonstrates
 
 - Agent roles with different tool permissions.
