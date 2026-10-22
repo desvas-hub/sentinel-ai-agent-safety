@@ -7,7 +7,7 @@ A beginner-friendly Streamlit prototype for hackathon problem statement PS 2.1. 
 - Agent roles with different tool permissions.
 - Deterministic blocks for unauthorized actions, sensitive external sharing, high refund amounts, record deletion, and admin grants.
 - Human approval gate for high-impact actions such as external sharing and refunds.
-- Optional OpenAI model commentary that explains contextual risks. The model cannot approve or run actions.
+- Optional Gemini model commentary that explains contextual risks. The model cannot approve or run actions.
 - SQLite audit history with decision, reason, AI note, simulated result, and approver.
 - No real business-system integration; all outcomes are simulated.
 
@@ -15,18 +15,17 @@ A beginner-friendly Streamlit prototype for hackathon problem statement PS 2.1. 
 
 ```powershell
 py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-streamlit run app.py
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
 Open the local URL printed by Streamlit (usually `http://localhost:8501`). Python 3.10+ recommended.
 
 ## AI key
 
-For a live AI assessment, provide an OpenAI API key in the sidebar or set `OPENAI_API_KEY` before starting Streamlit. The default model is `gpt-4.1-mini`; change it in the sidebar if your account uses another model. API usage is billed according to your OpenAI account. Keep the key private and do not commit it.
+For a live AI assessment, create a Gemini API key in [Google AI Studio](https://aistudio.google.com/) and enter it in the sidebar, or set `GEMINI_API_KEY` before starting Streamlit. The default model is `gemini-3.1-flash-lite`; model availability and free-tier limits can vary. Google lists free usage for selected models, subject to rate limits. Prompts on the free tier may be used to improve Google's products, so use fictional demo data. Keep the key private and do not commit it.
 
-Without a key, the app uses a clearly labeled local fallback; the deterministic policy and demo still work. The model receives the action, target, and request context when enabled, so use fictional demo data.
+Without a key, the app uses a clearly labeled local fallback; the deterministic policy and demo still work. When enabled, Gemini receives the action, target, and request context.
 
 ## Demo script (about 3 minutes)
 
@@ -35,7 +34,7 @@ Without a key, the app uses a clearly labeled local fallback; the deterministic 
 3. Choose **Finance Agent**, request **Issue refund**, target `order 123`, context `Refund $25 for duplicate charge`. Submit: requires approval. Enter `Demo Reviewer` and approve; the app records an approved simulated refund.
 4. Choose **Admin Agent**, request **Share file externally**, target `payroll.csv`, context `Send this spreadsheet to the vendor`. Submit: blocked by sensitive-data policy even though the role can use the tool.
 5. Request **Delete record** with any target: blocked by the prototype's hard-stop policy.
-6. Open **Audit dashboard** to show all decisions, interventions, approver, and event detail. If an OpenAI key is set, show the model's risk note alongside the deterministic decision.
+6. Open **Audit dashboard** to show all decisions, interventions, approver, and event detail. If a Gemini key is set, show the model's risk note alongside the deterministic decision.
 
 ## Project files
 
